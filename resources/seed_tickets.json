@@ -1,0 +1,164 @@
+{
+  "tickets": [
+    {
+      "id": "ZEN-001",
+      "subject": "Queue velocity appears turbulent",
+      "status": "open",
+      "priority": "high",
+      "requester": "Claude Navier",
+      "assignee": "George Stokes",
+      "tags": ["queue", "maths"],
+      "comments": [
+        { "author": "Claude Navier", "body": "Throughput collapsed at 14:00. The queue is not slow, it is turbulent." },
+        { "author": "George Stokes", "body": "It is a list, Claude. Lists do not have a Reynolds number." },
+        { "author": "Claude Navier", "body": "Anything that flows has one. You proved half of it." },
+        { "author": "George Stokes", "body": "I proved the half where you stop stirring." },
+        { "author": "J. Robert Oppenheimer", "body": "Two agents were at lunch. That is the whole model." }
+      ]
+    },
+    {
+      "id": "ZEN-002",
+      "subject": "Password reset link expired before observation",
+      "status": "open",
+      "priority": "normal",
+      "requester": "Albert Einstein",
+      "assignee": "J. Robert Oppenheimer",
+      "tags": ["login", "password-reset"],
+      "comments": [
+        { "author": "Albert Einstein", "body": "The reset link expired before I observed the inbox." },
+        { "author": "J. Robert Oppenheimer", "body": "It lasts fifteen minutes." },
+        { "author": "Albert Einstein", "body": "Fifteen minutes for whom?" },
+        { "author": "George Stokes", "body": "For the server." },
+        { "author": "Albert Einstein", "body": "Then the server has an alarming amount of authority." }
+      ]
+    },
+    {
+      "id": "ZEN-003",
+      "subject": "Search cannot find the word integral",
+      "status": "pending",
+      "priority": "low",
+      "requester": "George Stokes",
+      "assignee": "Claude Navier",
+      "tags": ["search", "indexing"],
+      "comments": [
+        { "author": "George Stokes", "body": "Searching for integral returns no results, despite there being three tickets about it." },
+        { "author": "Claude Navier", "body": "Did you search for integration?" },
+        { "author": "George Stokes", "body": "No. I searched for the word I wanted." },
+        { "author": "Claude Navier", "body": "The search is literal, not telepathic." },
+        { "author": "George Stokes", "body": "A disappointing limitation for a machine." }
+      ]
+    },
+    {
+      "id": "ZEN-004",
+      "subject": "Ticket timestamps disagree with each other",
+      "status": "open",
+      "priority": "high",
+      "requester": "Albert Einstein",
+      "assignee": "George Stokes",
+      "tags": ["timezones", "timestamps"],
+      "comments": [
+        { "author": "Albert Einstein", "body": "This ticket says it was updated yesterday, tomorrow, and five minutes ago." },
+        { "author": "George Stokes", "body": "You have three browser tabs open in three time zones." },
+        { "author": "Albert Einstein", "body": "That merely proves the interface lacks a reference frame." },
+        { "author": "J. Robert Oppenheimer", "body": "The release job assumes UTC. It is not taking questions." },
+        { "author": "Albert Einstein", "body": "UTC is just a very confident opinion about noon." }
+      ]
+    },
+    {
+      "id": "ZEN-005",
+      "subject": "Why are there six copies of my ticket?",
+      "status": "open",
+      "priority": "normal",
+      "requester": "Claude Navier",
+      "assignee": "Albert Einstein",
+      "tags": ["duplicates", "submission"],
+      "comments": [
+        { "author": "Claude Navier", "body": "I submitted one ticket. The system made six." },
+        { "author": "Albert Einstein", "body": "You clicked Submit six times." },
+        { "author": "Claude Navier", "body": "The button gave no indication that it had accepted my first click." },
+        { "author": "Albert Einstein", "body": "It became disabled." },
+        { "author": "Claude Navier", "body": "Briefly. Like a poorly observed particle." }
+      ]
+    },
+    {
+      "id": "ZEN-006",
+      "subject": "Attachment is too large for a simple diagram",
+      "status": "pending",
+      "priority": "low",
+      "requester": "J. Robert Oppenheimer",
+      "assignee": "Albert Einstein",
+      "tags": ["attachments", "limits"],
+      "comments": [
+        { "author": "J. Robert Oppenheimer", "body": "The diagram upload was rejected. It is only 48 MB." },
+        { "author": "Albert Einstein", "body": "Only is doing remarkable work in that sentence." },
+        { "author": "J. Robert Oppenheimer", "body": "It contains every possible state of the settings page." },
+        { "author": "George Stokes", "body": "Could it contain fewer possible states?" },
+        { "author": "J. Robert Oppenheimer", "body": "That would be a different diagram." }
+      ]
+    },
+    {
+      "id": "ZEN-007",
+      "subject": "Ticket assignment changed without a committee meeting",
+      "status": "open",
+      "priority": "normal",
+      "requester": "George Stokes",
+      "assignee": "Claude Navier",
+      "tags": ["assignment", "workflow"],
+      "comments": [
+        { "author": "George Stokes", "body": "Why was this assigned to me?" },
+        { "author": "Claude Navier", "body": "You were tagged as the expert." },
+        { "author": "George Stokes", "body": "I wrote one comment containing the word velocity." },
+        { "author": "Claude Navier", "body": "That is more expertise than the rest of us displayed." },
+        { "author": "George Stokes", "body": "This is not a defensible assignment algorithm." }
+      ]
+    },
+    {
+      "id": "ZEN-008",
+      "subject": "Dark mode has hidden the comment box",
+      "status": "closed",
+      "priority": "low",
+      "requester": "Claude Navier",
+      "assignee": "J. Robert Oppenheimer",
+      "tags": ["dark-mode", "ui"],
+      "comments": [
+        { "author": "Claude Navier", "body": "I cannot find the comment box in dark mode." },
+        { "author": "J. Robert Oppenheimer", "body": "It is directly below the large button labelled Comment." },
+        { "author": "Claude Navier", "body": "That label is now almost the same colour as the void." },
+        { "author": "Albert Einstein", "body": "Try increasing the contrast." },
+        { "author": "Claude Navier", "body": "At last, a bright future for the comment box." }
+      ]
+    },
+    {
+      "id": "ZEN-009",
+      "subject": "Reply was sent to the entire support team",
+      "status": "open",
+      "priority": "high",
+      "requester": "J. Robert Oppenheimer",
+      "assignee": "George Stokes",
+      "tags": ["email", "reply-all"],
+      "comments": [
+        { "author": "J. Robert Oppenheimer", "body": "I intended to reply privately and instead notified everyone." },
+        { "author": "George Stokes", "body": "The button says Reply all." },
+        { "author": "J. Robert Oppenheimer", "body": "It did not adequately communicate its ambitions." },
+        { "author": "Albert Einstein", "body": "The audience expanded relative to the observer." },
+        { "author": "George Stokes", "body": "Please stop making this sound inevitable." }
+      ]
+    },
+    {
+      "id": "ZEN-010",
+      "subject": "Too many tags, not enough certainty",
+      "status": "pending",
+      "priority": "normal",
+      "requester": "Albert Einstein",
+      "assignee": "Claude Navier",
+      "tags": ["tags", "classification"],
+      "comments": [
+        { "author": "Albert Einstein", "body": "This ticket has billing, login, queue, urgent, maths, and mysterious tags." },
+        { "author": "Claude Navier", "body": "It is a complicated ticket." },
+        { "author": "Albert Einstein", "body": "It is a password reset." },
+        { "author": "Claude Navier", "body": "Password resets affect the flow of support." },
+        { "author": "J. Robert Oppenheimer", "body": "I added mysterious because nobody could explain the queue tag." }
+      ]
+    }
+  ]
+}
