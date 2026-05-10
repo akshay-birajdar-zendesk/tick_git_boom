@@ -24,5 +24,14 @@ module TickGitBoom
       tickets.find { |t| t.id.casecmp?(id.to_s.strip) } ||
         raise(CLI::Kit::Abort, "no ticket with id #{id.inspect}")
     end
+
+    # Write to a temporary file and rename over the target, so a crash never
+    # leaves a half-written document behind.
+    def save
+      tmp = "#{@path}.tmp"
+      File.write(tmp, JSON.pretty_generate('tickets' => tickets.map(&:to_h)) + "\n")
+      File.rename(tmp, @path)
+      @path
+    end
   end
 end
