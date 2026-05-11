@@ -1,5 +1,6 @@
 require 'tick_git_boom'
 require 'json'
+require 'fileutils'
 
 module TickGitBoom
   # Owns the runtime JSON file: load and find tickets.
@@ -9,6 +10,7 @@ module TickGitBoom
     def initialize(path: TickGitBoom::DATA_PATH, seed_path: TickGitBoom::SEED_PATH)
       @path = path
       @seed_path = seed_path
+      copy_seed unless File.exist?(@path)
     end
 
     def tickets
@@ -32,6 +34,15 @@ module TickGitBoom
       File.write(tmp, JSON.pretty_generate('tickets' => tickets.map(&:to_h)) + "\n")
       File.rename(tmp, @path)
       @path
+    end
+
+    private
+
+    # Copy the tracked seed into place. Used to bootstrap the runtime file the
+    # first time the tool runs; the caller guards against clobbering.
+    def copy_seed
+      FileUtils.mkdir_p(File.dirname(@path))
+      FileUtils.cp(@seed_path, @path)
     end
   end
 end
