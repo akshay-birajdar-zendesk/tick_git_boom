@@ -4,19 +4,36 @@ require 'json'
 module TickGitBoom
   # Turns tickets into terminal output. The data model stays in Ticket;
   # everything about presentation lives here.
+  #
+  # In JSON mode, never open a CLI::UI frame on stdout: the StdoutRouter
+  # prefixes every line with the frame border, inside the JSON.
   module TicketOutput
+    FORMATS = %w[auto table json].freeze
     HEADINGS = %w[ID STATUS PRIORITY ASSIGNEE].freeze
 
     class << self
-      def list(tickets)
-        table(tickets)
+      def resolve(format)
+        unless FORMATS.include?(format)
+          raise(CLI::Kit::Abort, "unknown format #{format.inspect}; expected one of #{FORMATS.join(', ')}")
+        end
+        return format.to_sym unless format == 'auto'
+
+        $stdout.tty? ? :table : :json
       end
 
-      def show(ticket, message: nil)
-        detail(ticket, message)
+      def list(tickets, format:)
+        json?(format) ? puts(JSON.generate(tickets.map(&:to_h))) : table(tickets)
+      end
+
+      def show(ticket, format:, message: nil)
+        json?(format) ? puts(JSON.generate(ticket.to_h)) : detail(ticket, message)
       end
 
       private
+
+      def json?(format)
+        resolve(format) == :json
+      end
 
       def table(tickets)
         lead = tickets.map { |t| [t.id, t.status, t.priority.to_s, t.assignee.to_s] }

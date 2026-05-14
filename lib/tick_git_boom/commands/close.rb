@@ -2,8 +2,10 @@ require 'tick_git_boom'
 
 module TickGitBoom
   module Commands
-    class Close < CLI::Kit::BaseCommand
+    class Close < TickGitBoom::Command
       class Opts < CLI::Kit::Opts
+        include TickGitBoom::FormatOpts
+
         def id
           position!(desc: 'Ticket ID, e.g. ZEN-001')
         end
@@ -16,7 +18,7 @@ module TickGitBoom
         ticket = store.find(op.id)
         ticket.close
         store.save
-        TicketOutput.show(ticket, message: "Closed #{ticket.id}.")
+        TicketOutput.show(ticket, format: op.format, message: "Closed #{ticket.id}.")
       end
     end
   end

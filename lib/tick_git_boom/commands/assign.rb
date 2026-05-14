@@ -2,8 +2,10 @@ require 'tick_git_boom'
 
 module TickGitBoom
   module Commands
-    class Assign < CLI::Kit::BaseCommand
+    class Assign < TickGitBoom::Command
       class Opts < CLI::Kit::Opts
+        include TickGitBoom::FormatOpts
+
         def id
           position!(desc: 'Ticket ID, e.g. ZEN-001')
         end
@@ -20,7 +22,7 @@ module TickGitBoom
         ticket = store.find(op.id)
         ticket.assignee = op.assignee
         store.save
-        TicketOutput.show(ticket, message: "Assigned #{ticket.id} to #{ticket.assignee}.")
+        TicketOutput.show(ticket, format: op.format, message: "Assigned #{ticket.id} to #{ticket.assignee}.")
       end
     end
   end
