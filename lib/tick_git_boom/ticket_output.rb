@@ -10,6 +10,7 @@ module TickGitBoom
   module TicketOutput
     FORMATS = %w[auto table json].freeze
     HEADINGS = %w[ID STATUS PRIORITY ASSIGNEE].freeze
+    MIN_SUBJECT_WIDTH = 20
 
     class << self
       def resolve(format)
@@ -40,7 +41,7 @@ module TickGitBoom
         widths = ([HEADINGS] + lead).transpose.map { |col| col.map(&:length).max }
 
         # Subject takes the terminal's remaining width, so rows never wrap.
-        budget = [CLI::UI::Terminal.width - widths.sum - widths.size - 1, 20].max
+        budget = [CLI::UI::Terminal.width - widths.sum - widths.size - 1, MIN_SUBJECT_WIDTH].max
 
         rows = [(HEADINGS + ['SUBJECT']).map { |h| "{{bold:#{h}}}" }]
         rows += tickets.zip(lead).map do |ticket, cells|
