@@ -52,6 +52,10 @@ module TickGitBoom
       self.status = 'closed'
     end
 
+    def matches?(query)
+      subject.include?(query.to_s)
+    end
+
     def to_h
       {
         'id' => id,
