@@ -53,7 +53,7 @@ module TickGitBoom
     end
 
     def matches?(query)
-      subject.include?(query.to_s)
+      subject.downcase.include?(query.to_s.downcase)
     end
 
     def to_h
