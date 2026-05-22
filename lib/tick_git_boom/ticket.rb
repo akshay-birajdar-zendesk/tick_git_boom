@@ -52,6 +52,7 @@ module TickGitBoom
       self.status = 'closed'
     end
 
+    # Subject only, by design: search is a demo, not a full-text index.
     def matches?(query)
       subject.downcase.include?(query.to_s.downcase)
     end
