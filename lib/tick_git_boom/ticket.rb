@@ -54,7 +54,7 @@ module TickGitBoom
 
     # Subject only, by design: search is a demo, not a full-text index.
     def matches?(query)
-      subject.downcase.include?(query.to_s.downcase)
+      subject.downcase.include?(query.to_s.strip.downcase)
     end
 
     def to_h
