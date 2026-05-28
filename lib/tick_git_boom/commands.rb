@@ -10,5 +10,6 @@ module TickGitBoom
     end
 
     register :Help,    'help',    'tick_git_boom/commands/help'
+    register :Search,  'search',  'tick_git_boom/commands/search'
   end
 end
