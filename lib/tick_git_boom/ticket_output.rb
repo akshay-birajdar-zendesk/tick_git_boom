@@ -23,6 +23,8 @@ module TickGitBoom
       end
 
       def list(tickets, format:)
+        return puts(CLI::UI.fmt('{{gray:No tickets to show.}}')) if tickets.empty? && !json?(format)
+
         json?(format) ? puts(JSON.generate(tickets.map(&:to_h))) : table(tickets)
       end
 

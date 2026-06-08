@@ -12,6 +12,11 @@ module TickGitBoom
       end
 
       desc 'Show one ticket and its comments'
+      long_desc <<~DESC
+        Prints one ticket with its fields and full comment thread. IDs are matched case-insensitively.
+      DESC
+      usage 'ID [--format auto|table|json]'
+      example 'ZEN-001', 'Show a ticket'
 
       def invoke(op, _name)
         TicketOutput.show(TicketStore.new.find(op.id), format: op.format)

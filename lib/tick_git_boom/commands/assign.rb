@@ -16,6 +16,12 @@ module TickGitBoom
       end
 
       desc 'Assign a ticket to someone'
+      long_desc <<~DESC
+        Sets the assignee and saves the runtime file. The name is stored as given, trimmed;
+        it is not checked against a list of people.
+      DESC
+      usage 'ID ASSIGNEE [--format auto|table|json]'
+      example 'ZEN-001 "George Stokes"', 'Reassign a ticket'
 
       def invoke(op, _name)
         store = TicketStore.new

@@ -12,6 +12,12 @@ module TickGitBoom
       end
 
       desc 'Close a ticket'
+      long_desc <<~DESC
+        Sets the ticket status to closed and saves the runtime file.
+        There is no reopen command: run boom to reset everything.
+      DESC
+      usage 'ID [--format auto|table|json]'
+      example 'ZEN-001', 'Close a ticket'
 
       def invoke(op, _name)
         store = TicketStore.new
