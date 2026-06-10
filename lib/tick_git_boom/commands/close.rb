@@ -24,7 +24,7 @@ module TickGitBoom
         ticket = store.find(op.id)
         ticket.close
         store.save
-        TicketOutput.show(ticket, format: op.format, message: "Closed #{ticket.id}.")
+        TicketOutput.show(ticket, format: op.output_format, message: "Closed #{ticket.id}.")
       end
     end
   end

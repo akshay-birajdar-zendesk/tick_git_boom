@@ -15,7 +15,7 @@ module TickGitBoom
       example '--format json', 'Machine-readable list'
 
       def invoke(op, _name)
-        TicketOutput.list(TicketStore.new.tickets, format: op.format)
+        TicketOutput.list(TicketStore.new.tickets, format: op.output_format)
       end
     end
   end

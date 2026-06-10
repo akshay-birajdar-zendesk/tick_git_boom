@@ -28,7 +28,7 @@ module TickGitBoom
         ticket = store.find(op.id)
         ticket.assignee = op.assignee
         store.save
-        TicketOutput.show(ticket, format: op.format, message: "Assigned #{ticket.id} to #{ticket.assignee}.")
+        TicketOutput.show(ticket, format: op.output_format, message: "Assigned #{ticket.id} to #{ticket.assignee}.")
       end
     end
   end

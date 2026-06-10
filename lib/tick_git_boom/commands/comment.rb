@@ -28,7 +28,7 @@ module TickGitBoom
         ticket = store.find(op.id)
         ticket.add_comment(author: ENV['USER'] || 'you', body: op.body)
         store.save
-        TicketOutput.show(ticket, format: op.format, message: "Added a comment to #{ticket.id}.")
+        TicketOutput.show(ticket, format: op.output_format, message: "Added a comment to #{ticket.id}.")
       end
     end
   end

@@ -20,7 +20,7 @@ module TickGitBoom
       example '"queue"', 'Find tickets about the queue'
 
       def invoke(op, _name)
-        TicketOutput.list(TicketStore.new.tickets.select { |t| t.matches?(op.query) }, format: op.format)
+        TicketOutput.list(TicketStore.new.tickets.select { |t| t.matches?(op.query) }, format: op.output_format)
       end
     end
   end

@@ -19,7 +19,7 @@ module TickGitBoom
       example 'ZEN-001', 'Show a ticket'
 
       def invoke(op, _name)
-        TicketOutput.show(TicketStore.new.find(op.id), format: op.format)
+        TicketOutput.show(TicketStore.new.find(op.id), format: op.output_format)
       end
     end
   end
