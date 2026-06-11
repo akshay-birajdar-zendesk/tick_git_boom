@@ -16,5 +16,8 @@ module TickGitBoom
     register :Comment, 'comment', 'tick_git_boom/commands/comment'
     register :Close,   'close',   'tick_git_boom/commands/close'
     register :Help,    'help',    'tick_git_boom/commands/help'
+
+    Registry.add_alias('--help', 'help')
+    Registry.add_alias('-h', 'help')
   end
 end

@@ -16,13 +16,19 @@ module TickGitBoom
       end
 
       desc 'Add a comment to a ticket'
+      long_desc <<~DESC
+        Appends a comment to the ticket and saves the runtime file.
+        The author is taken from $USER.
+      DESC
+      usage 'ID BODY [--format auto|table|json]'
+      example 'ZEN-001 "The queue remains suspiciously turbulent."', 'Comment on a ticket'
 
       def invoke(op, _name)
         store = TicketStore.new
         ticket = store.find(op.id)
         ticket.add_comment(author: ENV['USER'] || 'you', body: op.body)
         store.save
-        TicketOutput.show(ticket, format: op.format, message: "Added a comment to #{ticket.id}.")
+        TicketOutput.show(ticket, format: op.output_format, message: "Added a comment to #{ticket.id}.")
       end
     end
   end

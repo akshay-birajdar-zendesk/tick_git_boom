@@ -10,7 +10,7 @@ module TickGitBoom
   module TicketOutput
     FORMATS = %w[auto table json].freeze
     HEADINGS = %w[ID STATUS PRIORITY ASSIGNEE].freeze
-    MIN_SUBJECT_WIDTH = 20
+    MIN_SUBJECT_WIDTH = 24
 
     class << self
       def resolve(format)
@@ -23,6 +23,8 @@ module TickGitBoom
       end
 
       def list(tickets, format:)
+        return puts(CLI::UI.fmt('{{gray:No tickets to show.}}')) if tickets.empty? && !json?(format)
+
         json?(format) ? puts(JSON.generate(tickets.map(&:to_h))) : table(tickets)
       end
 

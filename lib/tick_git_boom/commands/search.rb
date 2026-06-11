@@ -2,18 +2,25 @@ require 'tick_git_boom'
 
 module TickGitBoom
   module Commands
-    class Search < CLI::Kit::BaseCommand
+    class Search < TickGitBoom::Command
       class Opts < CLI::Kit::Opts
+        include TickGitBoom::FormatOpts
+
         def query
           position!(desc: 'Text to match against ticket subjects')
         end
       end
 
       desc 'Search ticket subjects'
+      long_desc <<~DESC
+        Matches the query against ticket subjects only, case-insensitively, as a substring.
+        Comments and tags are not searched.
+      DESC
+      usage 'QUERY [--format auto|table|json]'
+      example '"queue"', 'Find tickets about the queue'
 
       def invoke(op, _name)
-        matches = TicketStore.new.tickets.select { |t| t.matches?(op.query) }
-        matches.each { |t| puts "#{t.id}  #{t.status}  #{t.subject}" }
+        TicketOutput.list(TicketStore.new.tickets.select { |t| t.matches?(op.query) }, format: op.output_format)
       end
     end
   end
