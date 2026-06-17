@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+# Smoke check for the id sequence: creating a ticket must draw a *fresh* id,
+# never one that already exists. Exits 0 when the sequence is sound (or when
+# the create path does not exist yet), 1 when a created id collides.
+
+require 'bundler/setup'
+$LOAD_PATH.unshift(File.expand_path('../lib', __dir__))
+require 'tick_git_boom'
+require 'tmpdir'
+
+Dir.mktmpdir do |dir|
+  store = TickGitBoom::TicketStore.new(path: File.join(dir, 'tickets.json'))
+
+  unless store.respond_to?(:create)
+    warn 'check-ids: no create path yet; nothing to regress.'
+    exit 0
+  end
+
+  existing = store.tickets.map { |t| t.id[/\d+\z/].to_i }
+  max = existing.max.to_i
+  ticket = store.create(subject: 'sequence probe', priority: 'normal', requester: 'ci', tags: [])
+  drawn = ticket.id[/\d+\z/].to_i
+
+  if existing.include?(drawn) || drawn <= max
+    warn "check-ids: FAIL new id #{ticket.id} collides (highest existing was #{max})."
+    exit 1
+  end
+
+  warn "check-ids: OK new id #{ticket.id} follows #{max}."
+  exit 0
+end

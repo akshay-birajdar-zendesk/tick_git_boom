@@ -32,6 +32,12 @@ module TickGitBoom
         json?(format) ? puts(JSON.generate(ticket.to_h)) : detail(ticket, message)
       end
 
+      def notice(payload, format:, message:)
+        return puts(JSON.generate(payload)) if json?(format)
+
+        CLI::UI::Frame.open(TickGitBoom::TOOL_NAME, color: :green) { puts(CLI::UI.fmt(message)) }
+      end
+
       private
 
       def json?(format)

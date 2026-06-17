@@ -36,6 +36,13 @@ module TickGitBoom
       @path
     end
 
+    # Discards every runtime change. The command name is the confirmation.
+    def reset
+      copy_seed
+      @tickets = nil
+      @path
+    end
+
     private
 
     # Copy the tracked seed into place. Used to bootstrap the runtime file the
