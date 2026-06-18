@@ -5,6 +5,8 @@ require 'fileutils'
 module TickGitBoom
   # Owns the runtime JSON file: load and find tickets.
   class TicketStore
+    DEFAULT_PREFIX = 'ZEN-'
+
     attr_reader :path
 
     def initialize(path: TickGitBoom::DATA_PATH, seed_path: TickGitBoom::SEED_PATH)
@@ -39,11 +41,20 @@ module TickGitBoom
     # Discards every runtime change. The command name is the confirmation.
     def reset
       copy_seed
-      @tickets = nil
+      @tickets = @next_number = @prefix = nil
       @path
     end
 
     private
+
+    # Sequence state, read once from the loaded tickets and then carried in
+    # memory, so several creates in one run keep counting up. The prefix comes
+    # from the data, so a renamed prefix survives.
+    def next_id
+      @next_number ||= tickets.map { |t| t.id[/\d+\z/].to_i }.max.to_i
+      @prefix ||= tickets.last&.id&.slice(/\A.*?(?=\d+\z)/) || DEFAULT_PREFIX
+      format('%s%03d', @prefix, @next_number)
+    end
 
     # Copy the tracked seed into place. Used to bootstrap the runtime file the
     # first time the tool runs; the caller guards against clobbering.
