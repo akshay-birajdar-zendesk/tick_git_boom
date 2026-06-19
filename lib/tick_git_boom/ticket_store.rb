@@ -29,6 +29,22 @@ module TickGitBoom
         raise(CLI::Kit::Abort, "no ticket with id #{id.inspect}")
     end
 
+    def create(subject:, priority:, requester:, tags:)
+      raise(CLI::Kit::Abort, 'subject cannot be blank') if subject.to_s.strip.empty?
+
+      ticket = Ticket.from_h(
+        'id' => next_id,
+        'subject' => subject,
+        'status' => 'open',
+        'priority' => priority,
+        'requester' => requester,
+        'tags' => tags,
+        'comments' => [],
+      )
+      tickets << ticket
+      ticket
+    end
+
     # Write to a temporary file and rename over the target, so a crash never
     # leaves a half-written document behind.
     def save
