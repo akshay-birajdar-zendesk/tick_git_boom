@@ -15,6 +15,7 @@ module TickGitBoom
     register :Assign,  'assign',  'tick_git_boom/commands/assign'
     register :Comment, 'comment', 'tick_git_boom/commands/comment'
     register :Close,   'close',   'tick_git_boom/commands/close'
+    register :Add,     'add',     'tick_git_boom/commands/add'
     register :Boom,    'boom',    'tick_git_boom/commands/boom'
     register :Help,    'help',    'tick_git_boom/commands/help'
 

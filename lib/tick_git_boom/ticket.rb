@@ -4,6 +4,8 @@ module TickGitBoom
   # A single support ticket. Mutations validate; everything else is data.
   class Ticket
     STATUSES = %w[open pending closed].freeze
+    # Checked when a ticket is created, not on load: the seed is yours to edit.
+    PRIORITIES = %w[high normal low].freeze
 
     attr_reader :id, :subject, :priority, :requester, :tags, :comments, :status, :assignee
 
