@@ -69,7 +69,8 @@ module TickGitBoom
           ]
           label = fields.map { |name, _| name.length }.max + 2
           fields.each do |name, value|
-            puts(CLI::UI.fmt("{{bold:#{name.ljust(label)}}}#{value}"))
+            shown = value.to_s.empty? ? '{{gray:—}}' : value
+            puts(CLI::UI.fmt("{{bold:#{name.ljust(label)}}}#{shown}"))
           end
 
           puts('')
