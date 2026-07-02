@@ -2,7 +2,7 @@ require 'tick_git_boom'
 
 module TickGitBoom
   module Commands
-    class Add < TickGitBoom::Command
+    class Create < TickGitBoom::Command
       class Opts < CLI::Kit::Opts
         include TickGitBoom::FormatOpts
 
@@ -30,7 +30,7 @@ module TickGitBoom
       desc 'Create a new ticket'
       long_desc <<~DESC
         Creates an open, unassigned ticket with the next ID in the sequence
-        and saves it to the runtime file.
+        and saves it to the runtime file. Also available as `add`.
       DESC
       usage 'SUBJECT [--priority high|normal|low] [--requester NAME] [--tags a,b] [--format auto|table|json]'
       usage '--interactive [--format auto|table|json]'
