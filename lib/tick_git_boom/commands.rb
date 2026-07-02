@@ -15,10 +15,11 @@ module TickGitBoom
     register :Assign,  'assign',  'tick_git_boom/commands/assign'
     register :Comment, 'comment', 'tick_git_boom/commands/comment'
     register :Close,   'close',   'tick_git_boom/commands/close'
-    register :Add,     'add',     'tick_git_boom/commands/add'
+    register :Create,  'create',  'tick_git_boom/commands/create'
     register :Boom,    'boom',    'tick_git_boom/commands/boom'
     register :Help,    'help',    'tick_git_boom/commands/help'
 
+    Registry.add_alias('add', 'create')
     Registry.add_alias('--help', 'help')
     Registry.add_alias('-h', 'help')
   end
