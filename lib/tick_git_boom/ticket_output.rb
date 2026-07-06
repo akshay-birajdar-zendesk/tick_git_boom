@@ -11,6 +11,8 @@ module TickGitBoom
     FORMATS = %w[auto table json].freeze
     HEADINGS = %w[ID STATUS PRIORITY ASSIGNEE].freeze
     MIN_SUBJECT_WIDTH = 24
+    # Status colours for the detail view.
+    STATUS_COLOURS = { 'open' => :green, 'pending' => :yellow, 'closed' => :red }.freeze
 
     class << self
       def resolve(format)
@@ -69,7 +71,8 @@ module TickGitBoom
           ]
           label = fields.map { |name, _| name.length }.max + 2
           fields.each do |name, value|
-            puts(CLI::UI.fmt("{{bold:#{name.ljust(label)}}}#{value}"))
+            display = name == 'Status' ? "{{#{STATUS_COLOURS.fetch(value, :bold)}:#{value}}}" : value
+            puts(CLI::UI.fmt("{{bold:#{name.ljust(label)}}}#{display}"))
           end
 
           puts('')
