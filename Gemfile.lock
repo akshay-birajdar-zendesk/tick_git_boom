@@ -33,7 +33,7 @@ DEPENDENCIES
   cli-ui (~> 2.7.0)
   minitest (>= 5.0.0)
   minitest-reporters
-  mocha (~> 2.4)
+  mocha (~> 2.6)
   reline
 
 CHECKSUMS
