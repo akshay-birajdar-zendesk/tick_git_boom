@@ -69,7 +69,7 @@ module TickGitBoom
             ['Assignee', ticket.assignee],
             ['Tags', ticket.tags.join(', ')],
           ]
-          label = fields.map { |name, _| name.length }.max + 2
+          label = fields.map { |name, _| name.length }.max + 3
           fields.each do |name, value|
             display = name == 'Status' ? "{{#{STATUS_COLOURS.fetch(value, :bold)}:#{value}}}" : value
             puts(CLI::UI.fmt("{{bold:#{name.ljust(label)}}}#{display}"))
