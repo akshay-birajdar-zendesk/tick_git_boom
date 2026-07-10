@@ -8,7 +8,7 @@ module TickGitBoom
   ROOT      = File.expand_path('../..', __FILE__)
   LOG_FILE  = '/tmp/tick_git_boom.log'
 
-  SEED_PATH = File.join(ROOT, 'resources', 'seed_tickets.json')
+  SEED_PATH = File.join(ROOT, 'seeds', 'tickets.json')
   DATA_PATH = File.join(ROOT, 'data', 'tickets.json')
 
   autoload(:EntryPoint,   'tick_git_boom/entry_point')
