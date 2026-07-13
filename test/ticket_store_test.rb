@@ -41,11 +41,40 @@ module TickGitBoom
       assert_equal ['George Stokes', 'Noted.'], reloaded.comments.last.values_at('author', 'body')
     end
 
+    def test_reset_discards_runtime_changes
+      s = store
+      s.find('ZEN-001').close
+      s.save
+
+      store.reset
+      assert_equal 'open', store.find('ZEN-001').status
+    end
+
     def test_unknown_id_and_bad_status_abort
       assert_raises(CLI::Kit::Abort) { store.find('ZEN-999') }
       assert_raises(CLI::Kit::Abort) { store.find('ZEN-001').status = 'escalated' }
       assert_raises(CLI::Kit::Abort) { store.find('ZEN-001').assignee = '  ' }
       assert_raises(CLI::Kit::Abort) { store.find('ZEN-001').add_comment(author: 'x', body: '') }
+    end
+
+    def test_create_continues_the_id_sequence_and_defaults_to_open
+      s = store
+      highest = s.tickets.map { |t| t.id[/\d+\z/].to_i }.max
+
+      ticket = s.create(subject: 'Kettle reports laminar flow', priority: 'high', requester: 'Ada', tags: ['queue'])
+      s.save
+
+      assert_equal format('ZEN-%03d', highest + 1), ticket.id
+      assert_equal 'open', ticket.status
+      assert_nil ticket.assignee
+      assert_equal [], ticket.comments
+      assert_equal ticket.id, store.tickets.last.id
+    end
+
+    def test_create_on_an_empty_file_starts_at_001
+      store # bootstrap, so the data directory exists
+      File.write(@path, JSON.generate('tickets' => []))
+      assert_equal 'ZEN-001', store.create(subject: 'First', priority: 'low', requester: 'Ada', tags: []).id
     end
   end
 end
