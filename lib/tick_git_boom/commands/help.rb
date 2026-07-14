@@ -13,6 +13,16 @@ module TickGitBoom
         'Start over' => %w[boom],
       }.freeze
 
+      EXAMPLES = [
+        ['list', 'every ticket, as a table in a terminal'],
+        ['list | jq -r \'.[].id\'', 'JSON automatically when piped'],
+        ['show ZEN-001', 'one ticket with its comments'],
+        ['search "queue"', 'match ticket subjects'],
+        ['assign ZEN-001 "George Stokes"', 'reassign a ticket'],
+        ['close ZEN-001 --format json', 'close and print the JSON result'],
+        ['boom', 'reset every local ticket change'],
+      ].freeze
+
       desc 'Show this help'
 
       def call(_args, _name)
@@ -31,6 +41,18 @@ module TickGitBoom
           end
           puts ''
         end
+
+        puts CLI::UI.fmt('{{bold:Examples:}}')
+        example_width = EXAMPLES.map { |args, _| args.length }.max
+        EXAMPLES.each do |args, explanation|
+          puts CLI::UI.fmt("  {{command:#{tool} #{args.ljust(example_width)}}}  {{italic:{{gray:# #{explanation}}}}}")
+        end
+        puts ''
+
+        puts CLI::UI.fmt('{{bold:Output:}} {{italic:auto}} uses a table on a terminal and JSON when piped or ' \
+          'redirected. Pass {{italic:--format json}} or {{italic:--format table}} to be explicit.')
+        puts ''
+        puts CLI::UI.fmt("Run {{command:#{tool} COMMAND --help}} for that command's usage, options, and examples.")
       end
 
       private
