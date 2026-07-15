@@ -3,4 +3,4 @@
 # tracked seed is copied into place, and `tickgitboom boom` restores it.
 format: auto
 data_path: data/tickets.json
-seed_path: resources/seed_tickets.json
+seed_path: seeds/tickets.json

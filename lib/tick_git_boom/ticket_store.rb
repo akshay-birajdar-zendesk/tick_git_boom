@@ -69,6 +69,7 @@ module TickGitBoom
     def next_id
       @next_number ||= tickets.map { |t| t.id[/\d+\z/].to_i }.max.to_i
       @prefix ||= tickets.last&.id&.slice(/\A.*?(?=\d+\z)/) || DEFAULT_PREFIX
+      @next_number += 1
       format('%s%03d', @prefix, @next_number)
     end
 

@@ -71,8 +71,7 @@ module TickGitBoom
           ]
           label = fields.map { |name, _| name.length }.max + 3
           fields.each do |name, value|
-            coloured = name == 'Status' ? "{{#{STATUS_COLOURS.fetch(value, :bold)}:#{value}}}" : value
-            shown = value.to_s.empty? ? '{{gray:—}}' : coloured
+            shown = value.to_s.empty? ? '{{gray:—}}' : field_value(name, value)
             puts(CLI::UI.fmt("{{bold:#{name.ljust(label)}}}#{shown}"))
           end
 
@@ -92,6 +91,13 @@ module TickGitBoom
         pad = ' ' * indent
         CLI::UI::Wrap.new(text.to_s).wrap(CLI::UI::Terminal.width - indent)
           .lines.map { |line| pad + line.chomp }
+      end
+
+      # Colour a status value; every other field prints as given.
+      def field_value(name, value)
+        return value unless name == 'Status'
+
+        "{{#{STATUS_COLOURS.fetch(value, :bold)}:#{value}}}"
       end
     end
   end
