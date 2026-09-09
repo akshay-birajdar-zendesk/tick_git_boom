@@ -6,13 +6,13 @@ The app is real and works, but the point is its *history*: a believable reposito
 team of engineers over the summer of 2026, wrangling tickets from history's most argumentative
 scientists. You'll practise reading and reshaping that history with everyday Git commands.
 
-> 🧪 **Developed by the greats, for the greats.** Ramanujan, Curie, Tao, Einstein, and
+> **Developed by the greats, for the greats.** Ramanujan, Curie, Tao, Einstein, and
 > Oppenheimer built it; Navier, Stokes, and company file the tickets. Say hello in
 > `seeds/tickets.json` — or `./exe/tickgitboom show ZEN-001`.
 
 ---
 
-## The app (optional — you don't need it for the hunt)
+## The app
 
 It's a small JSON-backed ticket CLI (Ruby + [cli-kit](https://github.com/Shopify/cli-kit)).
 
