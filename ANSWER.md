@@ -8,8 +8,8 @@
 > A commit SHA is accepted as its first 7 characters.
 
 ## Tier 1 — the basics
-1. Files changed in commit `1f669d0`:
-2. Marie Curie's commit count:
+1. Files changed in commit `1f669d0`: ANSWER.md, README.md, lost-commit-drill.zsh
+2. Marie Curie's commit count: 10
 3. Who deleted `example.rb`, and the commit SHA:
 4. Commit that last changed `MIN_SUBJECT_WIDTH` (SHA) + tracker ID:
 5. *(stretch)* File changed in the most commits:
