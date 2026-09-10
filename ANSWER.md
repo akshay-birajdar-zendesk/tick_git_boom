@@ -1,7 +1,7 @@
 # Tick Git Boom — my answers
 
-- **Name / team:**
-- **Branch:** `hunt/<your-name>`
+- **Name / team:** Pragya Mittal
+- **Branch:** `hunt/pragya`
 
 > Fill in one answer per question. **Commit each answer as soon as you solve it** — your commit
 > timestamps are how we score speed. When you're done (or time is called), push and open a PR.
