@@ -1,0 +1,55 @@
+# Tick Git Boom — my answers
+
+- **Name / team:**
+- **Branch:** `hunt/<your-name>`
+
+> Fill in one answer per question. **Commit each answer as soon as you solve it** — your commit
+> timestamps are how we score speed. When you're done (or time is called), push and open a PR.
+> A commit SHA is accepted as its first 7 characters.
+
+## Tier 1 — the basics
+1. Files changed in commit `1f669d0`: 18 files
+    M       Gemfile
+    M       Gemfile.lock
+    M       README.md
+    M       config/defaults.yml
+    M       lib/tick_git_boom.rb
+    M       lib/tick_git_boom/commands.rb
+    D       lib/tick_git_boom/commands/add.rb
+    M       lib/tick_git_boom/commands/help.rb
+    M       lib/tick_git_boom/ticket_output.rb
+    M       lib/tick_git_boom/ticket_store.rb
+    D       resources/seed_tickets.json
+    M       test/test_helper.rb
+    M       test/ticket_store_test.rb
+2. Marie Curie's commit count:
+
+    Marie Curie (7):
+      GIT-118 Model a ticket as a value object
+      GIT-118 Load and find tickets in a JSON document
+      GIT-118 Seed the ticket fixture
+      GIT-118 Save through a temporary file and rename
+      GIT-118 Bootstrap the runtime copy on first boot
+      Merge branch 'feature/json-store' (GIT-118)
+      GIT-233 Validate the priority when creating
+3. Who deleted `example.rb`, and the commit SHA:
+    commit 4f34dc150e8c741def1f636542e7228253e38f31
+    Author: Terence Tao <terence.tao@tickgitboom.test>
+4. Commit that last changed `MIN_SUBJECT_WIDTH` (SHA) + tracker ID:
+    
+5. *(stretch)* File changed in the most commits:
+
+## Tier 2 — history as evidence
+6. Who committed the most in May 2026:
+7. Where `seeds/tickets.json` lived before + who moved it:
+8. *(stretch)* The stored name of `--format`, the rename commit (SHA), and the reason:
+
+## Tier 3 — reading a branching history
+9. *(stretch)* GIT-216 merge — parent `^1` (SHA), parent `^2` (SHA), and which is `main`:
+10. What changed in `ticket_output.rb` between `v0.1.0` and `v0.2.0`:
+
+## Tier 4 — hands-on
+11. Tag where `STATUS_COLOURS` first appears (+ the file):
+12. Your annotated tag `v0.5.1` — paste the proof it's annotated:
+13. Your resolved-merge commit SHA (feature/priority-colours):
+14. The recovered commit SHA (lost-commit drill):
