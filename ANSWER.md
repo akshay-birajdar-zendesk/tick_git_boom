@@ -9,7 +9,7 @@
 
 ## Tier 1 — the basics
 1. Files changed in commit `1f669d0`: commands.rb, add.rb, ticket.rb
-2. Marie Curie's commit count:
+2. Marie Curie's commit count: 5
 3. Who deleted `example.rb`, and the commit SHA:
 4. Commit that last changed `MIN_SUBJECT_WIDTH` (SHA) + tracker ID:
 5. *(stretch)* File changed in the most commits:
